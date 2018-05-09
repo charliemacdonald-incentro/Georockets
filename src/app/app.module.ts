@@ -5,26 +5,43 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import {LoginPage} from "../pages/login/login";
+import {LoginPageModule} from "../pages/login/login.module";
+import {AngularFireModule} from "angularfire2";
+import {AngularFireAuthModule} from "angularfire2/auth";
+import {GoogleLoginComponent} from "../components/google-login/google-login";
+import {GooglePlus} from "@ionic-native/google-plus";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBXRLNRMahmD8AZIp2Yo-J8EJe_VI7sF7E",
+    authDomain: "incentro-georockets.firebaseapp.com",
+    databaseURL: "https://incentro-georockets.firebaseio.com",
+    projectId: "incentro-georockets",
+    storageBucket: "incentro-georockets.appspot.com",
+    messagingSenderId: "841855342223"
+}
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    LoginPageModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GooglePlus
   ]
 })
 export class AppModule {}

@@ -39,23 +39,22 @@ export class LoginPage {
         'offline': true,
         'scopes': 'profile email'
       })
-      console.log('nativegooglelogin success');
-      this.navCtrl.setRoot('TabsPage');
-      return await this.angularfireAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+      return await this.angularfireAuth.auth.signInAndRetrieveDataWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
     } catch (error){
       console.log(error);
     }
+    console.log('nativegooglelogin success');
+    this.gotoNextPage();
   }
 
   async webGoogleLogin(): Promise<void>{
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
       const credential = await this.angularfireAuth.auth.signInWithPopup(provider);
-      console.log('webgooglelogin success');
-      this.navCtrl.setRoot('TabsPage');
     } catch(error) {
       console.log(error);
     }
+    this.gotoNextPage();
   }
 
   googleLogin(){
@@ -69,7 +68,8 @@ export class LoginPage {
   googleLogout(){
     this.angularfireAuth.auth.signOut();
   }
-  doLogin(){
+
+  gotoNextPage(){
     this.navCtrl.setRoot('TabsPage');
   }
 

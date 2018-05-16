@@ -11,14 +11,15 @@ import {AngularFireAuthModule} from "angularfire2/auth";
 import {GoogleLoginComponent} from "../components/google-login/google-login";
 import {GooglePlus} from "@ionic-native/google-plus";
 import {Geolocation} from "@ionic-native/geolocation";
+import {Device} from "@ionic-native/device";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBXRLNRMahmD8AZIp2Yo-J8EJe_VI7sF7E",
-    authDomain: "incentro-georockets.firebaseapp.com",
-    databaseURL: "https://incentro-georockets.firebaseio.com",
-    projectId: "incentro-georockets",
-    storageBucket: "incentro-georockets.appspot.com",
-    messagingSenderId: "841855342223"
+  apiKey: "AIzaSyCcbN0wlSN_qyQzWcGU6kwH19ilODnAWNw",
+  authDomain: "georockets-35e22.firebaseapp.com",
+  databaseURL: "https://georockets-35e22.firebaseio.com",
+  projectId: "georockets-35e22",
+  storageBucket: "georockets-35e22.appspot.com",
+  messagingSenderId: "171615817472"
 }
 
 @NgModule({
@@ -42,7 +43,8 @@ const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GooglePlus,
-    Geolocation
+    Geolocation,
+    Device
   ]
 })
 export class AppModule {}

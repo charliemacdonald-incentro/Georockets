@@ -1,3 +1,11 @@
 page-login {
-
+  ion-content {
+    background-image: url('../../assets/imgs/background_login.png') !important;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+  }
+  .loginbutton {
+    background-color: #ff823f !important;
+    height: 40px; 
+  }
 }
